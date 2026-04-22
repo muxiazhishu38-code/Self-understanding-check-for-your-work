@@ -11,7 +11,7 @@ Promise.all([
   /* === questions.csv（設問だけ）=== */
   const qLines = qText.trim().split("\n");
   for (let i = 1; i < qLines.length; i++) {
-    const [qid, question,scale] = qLines[i].split(",");
+    const [qid, question,scale.trim()] = qLines[i].split(",");
     questions.push({ qid, text: question,scale });
   }
 
