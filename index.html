@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>性格診断</title>
+
+  <style>
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .question {
+      margin-bottom: 24px;
+    }
+
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .choices label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      cursor: pointer;
+      padding: 4px 6px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #4f7cff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>性格診断</h1>
+
+    <form id="quiz"></form>
+
+    <button onclick="showResult()">結果を見る</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
