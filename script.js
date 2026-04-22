@@ -36,23 +36,29 @@ fetch("results.csv")
     }
   });
 
+
 /* 質問を画面に表示 */
 function renderQuestions() {
   const quiz = document.getElementById("quiz");
+  quiz.innerHTML = ""; // 念のため初期化
+
   questions.forEach(q => {
     quiz.innerHTML += `
       <div class="question">
-      <p>${q.text}</p>
-      ${q.options.map(o => `
+        <p>${q.text}</p>
         <label>
-          <input type="radio" name="q${q.qid}" value="${o.point}">
-          ${o.label}
+          <input type="radio" name="q${q.qid}" value="${q.options[0].point}">
+          ${q.options[0].label}
         </label>
-      `).join("")}
-    </div>
+        <label>
+          <input type="radio" name="q${q.qid}" value="${q.options[1].point}">
+          ${q.options[1].label}
+        </label>
+      </div>
     `;
   });
 }
+``
 
 /* 結果判定 */
 function showResult() {
