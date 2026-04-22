@@ -1,0 +1,11 @@
+﻿scale,label,point
+agree,とてもそう思う,5
+agree,そう思う,4
+agree,どちらともいえない,3
+agree,あまりそう思わない,2
+agree,まったくそう思わない,1
+agree2,とてもそう思う,1
+agree2,そう思う,2
+agree2,どちらともいえない,3
+agree2,あまりそう思わない,4
+agree2,まったくそう思わない,5
