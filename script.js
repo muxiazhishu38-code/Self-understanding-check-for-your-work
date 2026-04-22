@@ -8,28 +8,32 @@ Promise.all([
   fetch("results.csv").then(res => res.text())
 ]).then(([qText, cText, rText]) => {
 
-  /* === questions.csv（設問だけ）=== */
+  /* === questions.csv（設問）=== */
   const qLines = qText.trim().split("\n");
   for (let i = 1; i < qLines.length; i++) {
-    const [qid, question,scale.trim()] = qLines[i].split(",");
-    questions.push({ qid, text: question,scale });
+    const [qid, question, scale] = qLines[i].split(",");
+    questions.push({
+      qid: qid.trim(),
+      text: question.trim(),
+      scale: scale.trim()   // ★ ここが重要（保険）
+    });
   }
 
-  /* === choices.csv（リッカート尺度）=== */
+  /* === choices.csv（尺度別選択肢）=== */
   const cLines = cText.trim().split("\n");
   for (let i = 1; i < cLines.length; i++) {
-    const [scale,label, point] = cLines[i].split(",");
-    
-    if (!choicesByScale[scale]) {
-       choicesByScale[scale] = [];
-      }
-      choicesByScale[scale].push({
-       label,
-       point: Number(point)
+    const [scale, label, point] = cLines[i].split(",");
+    const scaleKey = scale.trim(); // ★ 保険
 
-      });
-   }
+    if (!choicesByScale[scaleKey]) {
+      choicesByScale[scaleKey] = [];
+    }
 
+    choicesByScale[scaleKey].push({
+      label: label.trim(),
+      point: Number(point)
+    });
+  }
 
   /* === results.csv（結果判定）=== */
   const rLines = rText.trim().split("\n");
@@ -38,24 +42,22 @@ Promise.all([
     results.push({
       min: Number(min),
       max: Number(max),
-      text
+      text: text.trim()
     });
   }
 
-  // 3つ全部そろってから描画
- 
- renderQuestions();
+  // 全部そろってから描画
+  renderQuestions();
 });
 
-/* 質問を画面に表示 */
-
+/* === 質問を画面に表示 === */
 function renderQuestions() {
   const quiz = document.getElementById("quiz");
   quiz.innerHTML = "";
 
   questions.forEach(q => {
     const scaleChoices = choicesByScale[q.scale] || [];
-    
+
     quiz.innerHTML += `
       <div class="question">
         <p>${q.text}</p>
@@ -72,7 +74,7 @@ function renderQuestions() {
   });
 }
 
-/* 結果判定 */
+/* === 結果判定 === */
 function showResult() {
   let total = 0;
   document.querySelectorAll("input:checked").forEach(el => {
@@ -83,3 +85,4 @@ function showResult() {
   document.getElementById("result").innerText =
     r ? r.text : "結果が判定できません";
 }
+``
