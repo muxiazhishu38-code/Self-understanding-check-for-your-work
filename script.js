@@ -19,7 +19,7 @@ Promise.all([
   const cLines = cText.trim().split("\n");
   for (let i = 1; i < cLines.length; i++) {
     const [label, point] = cLines[i].split(",");
-    choices.push({ label, point });
+    choices.push({ label, point: Number(point) });
   }
 
   /* === results.csv（結果判定）=== */
