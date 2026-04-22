@@ -21,6 +21,18 @@ fetch("questions.csv")
     renderQuestions();
   });
 
+/* 選択肢CSVを読み込む */
+fetch("choices.csv")
+  .then(res => res.text())
+  .then(text => {
+    const lines = text.trim().split("\n");
+    for (let i = 1; i < lines.length; i++) {
+      const [label, point] = lines[i].split(",");
+      choices.push({ label, point });
+    }
+  });
+``
+
 /* 結果CSVを読み込む */
 fetch("results.csv")
   .then(res => res.text())
@@ -42,19 +54,17 @@ function renderQuestions() {
   const quiz = document.getElementById("quiz");
   quiz.innerHTML = ""; // 念のため初期化
 
-  questions.forEach(q => {
+   questions.forEach(q => {
     quiz.innerHTML += `
-      <div class="question">
-        <p>${q.text}</p>
-        <label>
-          <input type="radio" name="q${q.qid}" value="${q.options[0].point}">
-          ${q.options[0].label}
-        </label>
-        <label>
-          <input type="radio" name="q${q.qid}" value="${q.options[1].point}">
-          ${q.options[1].label}
-        </label>
-      </div>
+      <div class="choices">
+  　　　${choices.map(c => `
+    　　　<label>
+     　 　　<input type="radio" name="q${q.qid}" value="${c.point}">
+     　 　　${c.label}
+   　　 　</label>
+  　　　`).join("")}
+　　　</div>
+
     `;
   });
 }
