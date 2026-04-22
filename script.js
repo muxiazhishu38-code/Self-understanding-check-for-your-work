@@ -41,6 +41,7 @@ function renderQuestions() {
   const quiz = document.getElementById("quiz");
   questions.forEach(q => {
     quiz.innerHTML += `
+      <div class="question">
       <p>${q.text}</p>
       ${q.options.map(o => `
         <label>
@@ -48,6 +49,7 @@ function renderQuestions() {
           ${o.label}
         </label>
       `).join("")}
+    </div>
     `;
   });
 }
