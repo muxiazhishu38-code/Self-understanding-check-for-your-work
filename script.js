@@ -1,6 +1,5 @@
 let questions = [];
 let choicesByScale = {};
-``
 let results = [];
 
 Promise.all([
@@ -61,7 +60,7 @@ function renderQuestions() {
       <div class="question">
         <p>${q.text}</p>
         <div class="choices">
-          ${choices.map(c => `
+          ${scaleChoices.map(c => `
             <label>
               <input type="radio" name="q${q.qid}" value="${c.point}">
               ${c.label}
