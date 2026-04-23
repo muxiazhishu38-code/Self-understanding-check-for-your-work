@@ -38,7 +38,7 @@ Promise.all([
   // results.csv（年代別コメント）
   const rLines = rText.trim().split("\n");
   for (let i = 1; i < rLines.length; i++) {
-    const [min, max, title, desc20, desc30, desc40] = rLines[i].split(",");
+    const [min, max, title, desc20, desc30, desc40, desc50, desc60] = rLines[i].split(",");
     results.push({
       min: Number(min),
       max: Number(max),
