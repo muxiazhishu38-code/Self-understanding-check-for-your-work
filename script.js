@@ -42,7 +42,7 @@ Promise.all([
     results.push({
       min: Number(min),
       max: Number(max),
-      title:CSSViewTransitionRule.trim(),
+      title:title.trim(),
       description: description.trim()
     });
   }
