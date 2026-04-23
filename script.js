@@ -84,7 +84,7 @@ function showResult() {
 
   const r = results.find(r => total >= r.min && total <= r.max);
  
-  document.getElementById("result").innerText = r ?`
+  document.getElementById("result").innerHTML = r ?`
    <h2>${r.title}</h2>
    <p>${r.description}<p/>`
    : "結果が判定できません";
