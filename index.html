@@ -58,7 +58,6 @@
   margin-bottom: 24px;
  }
 
-
     /* Q番号と本文のつらを分ける */
     .question-text {
       display: flex;
@@ -94,6 +93,21 @@
       padding: 4px 6px;
     }
 
+    /* ===== 選択中ハイライト ===== */
+    .choices label {
+      border-radius: 8px;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .choices input[type="radio"]:checked + span {
+     font-weight: bold;
+     color: #4f7cff;
+    }
+
+    .choices input[type="radio"]:checked {
+      accent-color: #4f7cff;
+    }
+    
     /* スマホでは縦並び */
     @media (max-width: 600px) {
       .choices {

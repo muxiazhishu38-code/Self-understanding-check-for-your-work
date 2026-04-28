@@ -89,7 +89,7 @@ function renderQuestions() {
           ${opts.map(o => `
             <label>
               <input type="radio" name="q${q.qid}" value="${o.point}">
-              ${o.label}
+             <span> ${o.label}</span>
             </label>
           `).join("")}
         </div>
