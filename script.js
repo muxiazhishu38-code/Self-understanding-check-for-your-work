@@ -89,7 +89,7 @@ function renderQuestions() {
           ${opts.map(o => `
             <label>
               <input type="radio" name="q${q.qid}" value="${o.point}">
-             <span> ${o.label}</span>
+             <span>${o.label}</span>
             </label>
           `).join("")}
         </div>
@@ -135,10 +135,19 @@ function showResult() {
     inRange(scores.D, r.d_min, r.d_max)
   );
 
-  document.getElementById("result").innerHTML = matched ? `
+  
+const resultDiv = document.getElementById("result");
+
+if (matched) {
+  resultDiv.innerHTML = `
+    <p class="result-intro">
+      あなたの今の状態は、次のように整理できます。
+    </p>
     <h2>${matched.title}</h2>
     <p>${matched.description}</p>
-  ` : `
+  `;
+} else {
+  resultDiv.innerHTML = `
     <h2>判定結果</h2>
     <p>条件に一致する結果が見つかりませんでした。</p>
   `;
