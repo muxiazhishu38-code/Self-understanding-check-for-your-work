@@ -71,7 +71,7 @@ function inRange(score, min, max) {
 }
 
 /* =========================
-   設問描画（UI改善反映）
+   設問描画
 ========================= */
 function renderQuestions() {
   const quiz = document.getElementById("quiz");
@@ -83,13 +83,13 @@ function renderQuestions() {
       <div class="question">
         <p class="question-text">
           <span class="q-number">Q${q.qid}.</span>
-          <span class="q-body">${q.text}</span>
+          <span>${q.text}</span>
         </p>
         <div class="choices">
           ${opts.map(o => `
             <label>
               <input type="radio" name="q${q.qid}" value="${o.point}">
-             <span>${o.label}</span>
+              <span>${o.label}</span>
             </label>
           `).join("")}
         </div>
@@ -135,20 +135,20 @@ function showResult() {
     inRange(scores.D, r.d_min, r.d_max)
   );
 
-  
-const resultDiv = document.getElementById("result");
+  const resultDiv = document.getElementById("result");
 
-if (matched) {
-  resultDiv.innerHTML = `
-    <p class="result-intro">
-      あなたの今の状態は、次のように整理できます。
-    </p>
-    <h2>${matched.title}</h2>
-    <p>${matched.description}</p>
-  `;
-} else {
-  resultDiv.innerHTML = `
-    <h2>判定結果</h2>
-    <p>条件に一致する結果が見つかりませんでした。</p>
-  `;
+  if (matched) {
+    resultDiv.innerHTML = `
+      <p class="result-intro">
+        あなたの今の状態は、次のように整理できます。
+      </p>
+      <h2>${matched.title}</h2>
+      <p>${matched.description}</p>
+    `;
+  } else {
+    resultDiv.innerHTML = `
+      <h2>判定結果</h2>
+      <p>条件に一致する結果が見つかりませんでした。</p>
+    `;
+  }
 }
