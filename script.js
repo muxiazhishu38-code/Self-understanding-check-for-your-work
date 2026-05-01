@@ -119,18 +119,16 @@ function showResult() {
     
     <div class="reflection">
       <p class="reflection-question">
-        今の働き方が、この先もしばらく続いていたとしたら、<br>
-        あなたはどんな気持ちでいそうですか？
+        今の働き方が、この先もしばらく続いていたとしたら、あなたはどんな気持ちでいそうですか？
       </p>
 
       <p class="reflection-note">
         無理に答えを出す必要はありません。<br>
-        今の感覚を少し想像してみるだけで大丈夫です。
+        少し想像してみるだけで大丈夫です。
       </p>
 
       <p class="reflection-note">
-        もし考えてみて、「このままでいいのか少し引っかかった」と感じたら、<br>
-        今の状態について誰かと話してみるのも一つの方法です。
+        もし考えてみて、「このままでいいのか少し引っかかった」と感じたら、今の状態について誰かと話してみるのも一つの方法です。
       </p>
 
       <a href="https://forms.cloud.microsoft/r/cKVwMcfpgW" class="reflection-link">
