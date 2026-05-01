@@ -18,8 +18,8 @@
       margin: 0 auto;
       background: #ffffff;
       padding: 32px 24px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
 
     /* ===== 表題（1行固定） ===== */
@@ -52,7 +52,7 @@
 /* ===== 設問カード化 ===== */
 .question {
   background: #fafafa;
-  border: 1px solid #e5e5e5;
+  border: none;
   border-radius: 12px;
   padding: 16px 16px 18px;
   margin-bottom: 24px;
@@ -152,7 +152,9 @@
     #result h2 {
       text-align: center;
       font-size: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 16px;     
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee; /* ★ 細い区切り */
     }
 
     #result p {
