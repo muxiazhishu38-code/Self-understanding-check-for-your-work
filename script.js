@@ -128,7 +128,7 @@ function showResult() {
       </p>
 
       <p class="reflection-note">
-        もし考えてみて、「このままでいいのか少し引っかかった」と感じたら、今の状態について誰かと話してみるのも一つの方法です。
+        考えてみて、「このままでいいのか少し引っかかった」と感じたら、今の状態について誰かと話してみるのも一つの方法です。
       </p>
 
       <a href="https://forms.cloud.microsoft/r/cKVwMcfpgW" class="reflection-link">
