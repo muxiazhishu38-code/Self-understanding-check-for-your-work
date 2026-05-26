@@ -131,7 +131,7 @@ function showResult() {
         考えてみて、「このままでいいのか少し引っかかった」と感じたら、今の状態について誰かと話してみるのも一つの方法です。
       </p>
 
-      <a href="https://forms.cloud.microsoft/r/cKVwMcfpgW" class="reflection-link">
+      <a href="https://forms.cloud.microsoft/r/BsGSCMturR">
         💡今の状態について、少し話を聞いてみる
       </a>
     </div>
