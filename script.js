@@ -132,7 +132,7 @@ function showResult() {
       </p>
 
       <a href="https://forms.cloud.microsoft/r/cKVwMcfpgW" class="reflection-link">
-        今の状態について、少し話を聞いてみる
+        💡今の状態について、少し話を聞いてみる
       </a>
     </div>
       
