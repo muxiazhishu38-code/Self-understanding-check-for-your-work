@@ -9,7 +9,7 @@ Promise.all([
 ]).then(([qText, cText, rText]) => {
 
   qText.trim().split("\n").slice(1).forEach(line => {
-    const [qid, question, scale, axis] = line.split(",");
+    const [qid, question, scale, axis] = parseCSVLine(line);
     questions.push({
       qid: qid.trim(),
       text: question.trim(),
@@ -19,7 +19,7 @@ Promise.all([
   });
 
   cText.trim().split("\n").slice(1).forEach(line => {
-    const [scale, label, point] = line.split(",");
+    const [scale, label, point] = parseCSVLine(line);
     const key = scale.trim();
     if (!choicesByScale[key]) choicesByScale[key] = [];
     choicesByScale[key].push({
@@ -29,7 +29,7 @@ Promise.all([
   });
 
   rText.trim().split("\n").slice(1).forEach(line => {
-    const cols = line.split(",");
+    const cols = parseCSVLine(line);
     results.push({
       age: cols[0].trim(),
       a_min: toNum(cols[1]),
@@ -47,6 +47,44 @@ Promise.all([
 
   renderQuestions();
 });
+
+// ===== 安全なCSV行パーサ（引用符に対応） =====
+// 例: 5,"人を気にする, 本当はすごく気にする",agree,B
+// カンマで単純に区切ると、引用符の中のカンマで壊れるため、
+// 引用符の中のカンマは区切りとして扱わない。
+function parseCSVLine(line) {
+  const cols = [];
+  let cur = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+
+    if (inQuotes) {
+      if (ch === '"') {
+        if (line[i + 1] === '"') {   // 連続する引用符は文字としての引用符
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = false;           // 引用符の終わり
+        }
+      } else {
+        cur += ch;
+      }
+    } else {
+      if (ch === '"') {
+        inQuotes = true;              // 引用符の始まり
+      } else if (ch === ",") {
+        cols.push(cur);
+        cur = "";
+      } else {
+        cur += ch;
+      }
+    }
+  }
+  cols.push(cur);
+  return cols;
+}
 
 function toNum(v) {
   if (!v) return null;
