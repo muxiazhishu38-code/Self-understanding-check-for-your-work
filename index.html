@@ -129,6 +129,30 @@
       }
     }
 
+    /* ===== 未回答警告バナー ===== */
+    #warn {
+      display: none;
+      margin-top: 24px;
+      padding: 14px 16px;
+      background: #fff4f4;
+      border: 1px solid #ffb3b3;
+      border-left: 4px solid #e34f4f;
+      border-radius: 8px;
+      color: #b3261e;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    #warn.show {
+      display: block;
+    }
+
+    /* ===== 未回答の設問ハイライト ===== */
+    .question.unanswered {
+      background: #fff4f4;
+      box-shadow: inset 0 0 0 2px #e34f4f;
+    }
+
     /* ===== ボタン ===== */
     button {
       display: block;
@@ -269,6 +293,9 @@
     <form id="quiz"></form>
 
     <button type="button" onclick="showResult()">結果を見る</button>
+
+    <!-- 未回答警告 -->
+    <div id="warn"></div>
 
     <!-- 結果表示 -->
     <div id="result"> 
