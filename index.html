@@ -252,6 +252,109 @@
       transform: translateY(0);
       box-shadow: 0 4px 10px rgba(79, 124, 255, 0.35);
     }
+    /* ===== スマホ表示の微調整 ===== */
+    @media (max-width: 600px) {
+      /* 画面の左右余白を少し詰めて、内容にゆとりを持たせる */
+      body {
+        padding: 20px 10px;
+      }
+
+      .container {
+        padding: 24px 16px;
+        border-radius: 14px;
+      }
+
+      /* タイトルが狭い端末でも収まるように少し小さく */
+      h1 {
+        font-size: 18px;
+        letter-spacing: 0.02em;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        margin-bottom: 24px;
+      }
+
+      /* 年代セレクトを押しやすく */
+      .age-select {
+        margin-bottom: 24px;
+      }
+
+      .age-select select {
+        padding: 12px 14px;
+        font-size: 16px;
+      }
+
+      /* 設問カードの余白を調整 */
+      .question {
+        padding: 16px 14px 18px;
+        margin-bottom: 18px;
+      }
+
+      /* 設問文を少し読みやすく */
+      .question-text {
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      /* 選択肢：行全体をタップ領域にして指で押しやすく */
+      .choices {
+        gap: 10px;
+      }
+
+      .choices label {
+        display: flex;                 /* 行全体をタップ領域に */
+        align-items: center;
+        gap: 10px;
+        min-height: 48px;              /* 44px以上を確保 */
+        padding: 10px 12px;
+        white-space: normal;           /* 長い文言でも折り返し可 */
+        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #e6e9f0;
+      }
+
+      .choices label:has(input:checked) {
+        border-color: #4f7cff;
+        background: #eef3ff;
+      }
+
+      .choices label span {
+        font-size: 16px;
+      }
+
+      .choices input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+
+      /* 結果を見るボタンを押しやすく */
+      button {
+        margin-top: 24px;
+        padding: 16px;
+        font-size: 17px;
+      }
+
+      /* 結果・内省ブロックの余白調整 */
+      #result {
+        margin-top: 24px;
+        padding-top: 20px;
+      }
+
+      .reflection {
+        padding: 16px;
+      }
+
+      .reflection-question {
+        font-size: 17px;
+      }
+
+      .reflection-link {
+        font-size: 17px;
+        padding: 16px 14px;
+      }
+    }
   </style>
   
 <!-- Google tag (gtag.js) -->
