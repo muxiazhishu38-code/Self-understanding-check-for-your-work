@@ -134,9 +134,13 @@ function showResult() {
       <p class="reflection-note">
         今感じていることを言葉にしてみるだけでも、これからの方向性が少し見えやすくなることもあります。
       </p>
-      <a href="https://forms.cloud.microsoft/r/BsGSCMturR">
-        💡キャリアカウンセラーに話を聞いてみる
-      </a>
+      <div class="reflection-cta">
+        <a class="reflection-link"
+           href="https://forms.cloud.microsoft/r/BsGSCMturR"
+           target="_blank" rel="noopener noreferrer">
+          💡キャリアカウンセラーに話を聞いてみる
+        </a>
+      </div>
     </div>
       
     `;
