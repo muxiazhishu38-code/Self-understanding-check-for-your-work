@@ -88,6 +88,43 @@ function renderQuestions() {
 function showResult() {
   const scores = { A: 0, B: 0, C: 0, D: 0 };
 
+  // ===== 未回答チェック =====
+  const unanswered = [];
+  questions.forEach(q => {
+    const checked = document.querySelector(`input[name="q${q.qid}"]:checked`);
+    if (!checked) unanswered.push(q.qid);
+  });
+
+  const warnDiv = document.getElementById("warn");
+
+  // 前回のハイライトを消す
+  document.querySelectorAll(".question").forEach(el => el.classList.remove("unanswered"));
+
+  if (unanswered.length > 0) {
+    // 未回答がある間は結果を出さない
+    document.getElementById("result").innerHTML = "";
+
+    // 未回答の設問を赤くハイライト
+    unanswered.forEach(qid => {
+      const input = document.querySelector(`input[name="q${qid}"]`);
+      if (input) input.closest(".question").classList.add("unanswered");
+    });
+
+    warnDiv.innerHTML =
+      `未回答の設問が ${unanswered.length} 件あります。<br>` +
+      `Q${unanswered.join("・Q")} に回答してから、もう一度お試しください。`;
+    warnDiv.classList.add("show");
+
+    // 最初の未回答へスクロール
+    const first = document.querySelector(".question.unanswered");
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    return;
+  }
+
+  // 全問回答済みなら警告を消す
+  warnDiv.classList.remove("show");
+
   document.querySelectorAll("input:checked").forEach(input => {
     const qid = input.name.replace("q", "");
     const q = questions.find(q => q.qid === qid);
